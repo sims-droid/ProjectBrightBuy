@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectBrightBuy.ViewProductPage"
+             Title="ViewProductPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Header -->
+            <HorizontalStackLayout>
+                <ImageButton Source="logo.jpg"
+                             HeightRequest="30"
+                             WidthRequest="30"
+                             Clicked="OnBackClicked" />
+                <Label Text="View Products"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" />
+            </HorizontalStackLayout>
+
+            <!-- Search Bar -->
+            <Entry x:Name="SearchBar"
+                   Placeholder="Search Products..."
+                   BackgroundColor="#F2F2F2"
+                   HeightRequest="45"
+                   TextChanged="OnSearchTextChanged" />
+
+            <!-- Product List -->
+            <CollectionView x:Name="ProductsCollection"
+                            ItemsSource="{Binding Products}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#DDD" CornerRadius="12" Padding="15" Margin="0,10,0,0">
+                            <VerticalStackLayout Spacing="10">
+                                <Image Source="{Binding Image}" HeightRequest="150" Aspect="AspectFill" />
+                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
+                                <Label Text="{Binding Type}" TextColor="#555" FontSize="14" />
+                                <Label Text="{Binding Price, StringFormat='R{0:F2}'}" TextColor="#0078D7" FontSize="16" />
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Button Text="Add to Cart"
+                                            BackgroundColor="#FFD700"
+                                            TextColor="Black"
+                                            FontAttributes="Bold"
+                                            CornerRadius="10"
+                                            Clicked="OnAddToCartClicked" />
+
+                                    <Button Text="Remove"
+                                            BackgroundColor="#FF4444"
+                                            TextColor="White"
+                                            CornerRadius="10"
+                                            Clicked="OnRemoveProductClicked" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Back to Main -->
+            <Button Text="Back to Main Page"
+                    BackgroundColor="#333"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="OnBackClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

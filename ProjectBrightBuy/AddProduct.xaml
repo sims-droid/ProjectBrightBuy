@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectBrightBuy.AddProduct"
+             Title="AddProduct">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="25">
+
+            <!-- Header -->
+            <HorizontalStackLayout>
+                <ImageButton Source="dontnet_bot.png"
+                             HeightRequest="30"
+                             WidthRequest="30"
+                             Clicked="OnBackClicked" />
+                <Label Text="Add Product"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" />
+            </HorizontalStackLayout>
+
+            <!-- Product ID -->
+            <Entry x:Name="ProductIdEntry"
+                   Placeholder="Enter Product ID"
+                   Keyboard="Numeric"
+                   BackgroundColor="#F8F8F8"
+                   HeightRequest="45" />
+
+            <!-- Product Name -->
+            <Entry x:Name="ProductNameEntry"
+                   Placeholder="Enter Product Name"
+                   BackgroundColor="#F8F8F8"
+                   HeightRequest="45" />
+
+            <!-- Product Type -->
+            <Picker x:Name="ProductTypePicker"
+                    Title="Select Product Type"
+                    BackgroundColor="#F8F8F8"
+                    HeightRequest="45">
+                <Picker.Items>
+                    <x:String>Clothing</x:String>
+                    <x:String>Electronics</x:String>
+                    <x:String>Furniture</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Product Price -->
+            <Entry x:Name="ProductPriceEntry"
+                   Placeholder="Enter Price (e.g. 499.99)"
+                   Keyboard="Numeric"
+                   BackgroundColor="#F8F8F8"
+                   HeightRequest="45" />
+
+            <!-- Description -->
+            <Editor x:Name="ProductDescriptionEditor"
+                    Placeholder="Enter Product Description"
+                    AutoSize="TextChanges"
+                    BackgroundColor="#F8F8F8"
+                    HeightRequest="100" />
+
+            <!-- Add Product Button -->
+            <Button Text="Add Product"
+                    BackgroundColor="#FFD700"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnAddProductClicked" />
+
+            <!-- Back to Main Page -->
+            <Button Text="Back to Main Page"
+                    BackgroundColor="#333"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="OnBackClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

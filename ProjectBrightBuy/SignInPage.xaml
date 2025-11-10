@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectBrightBuy.SignInPage"
+             Title="SignInPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15">
+
+            <!-- App Logo -->
+            <Image Source="logo.jpg" HeightRequest="100" HorizontalOptions="Center" />
+
+            <!-- Title -->
+            <Label Text="Welcome Back!" 
+                   FontSize="28" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="#222" />
+
+            <Label Text="Sign in to continue your shopping" 
+                   FontSize="14" 
+                   TextColor="#777"
+                   HorizontalOptions="Center" />
+
+            <!-- Email Entry -->
+            <Entry x:Name="EmailEntry"
+                   Placeholder="Email Address"
+                   Keyboard="Email"
+                   ClearButtonVisibility="WhileEditing" />
+
+            <!-- Password Entry -->
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="Password"
+                   IsPassword="True" />
+
+            <!-- Remember Me + Forgot Password -->
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <CheckBox x:Name="RememberMeCheckBox" />
+                <Label Text="Remember Me" VerticalOptions="Center" />
+                <Label Text="Forgot Password?" TextColor="#0078D7"
+                       HorizontalOptions="EndAndExpand"
+                       FontAttributes="Bold" />
+            </HorizontalStackLayout>
+
+            <!-- Sign In Button -->
+            <Button Text="Sign In"
+                    BackgroundColor="#FFD700"
+                    TextColor="Black"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    Clicked="OnSignInClicked" />
+
+            <!-- Divider -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <BoxView Color="#ccc" HeightRequest="1" WidthRequest="100" />
+                <Label Text="OR" TextColor="#777" />
+                <BoxView Color="#ccc" HeightRequest="1" WidthRequest="100" />
+            </HorizontalStackLayout>
+
+            <!-- Sign Up Redirect -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Don’t have an account?" TextColor="#555" />
+                <Label Text=" Sign Up" 
+                       TextColor="#0078D7"
+                       FontAttributes="Bold"
+                       GestureRecognizers="{StaticResource SignUpTapGesture}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

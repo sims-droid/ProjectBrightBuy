@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectBrightBuy.SignUpPage"
+             Title="SignUpPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15">
+
+            <!-- App Logo -->
+            <Image Source="logo.jpg" HeightRequest="100" HorizontalOptions="Center" />
+
+            <!-- Page Title -->
+            <Label Text="Create an Account"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,10" />
+
+            <!-- Input Fields -->
+            <Entry x:Name="FirstNameEntry" Placeholder="First Name" />
+            <Entry x:Name="LastNameEntry" Placeholder="Last Name" />
+            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" />
+            <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
+            <Entry x:Name="MobileEntry" Placeholder="Mobile Number" Keyboard="Telephone" />
+            <Entry x:Name="AddressEntry" Placeholder="Address" />
+
+            <!-- Register Button -->
+            <Button Text="Register"
+                    BackgroundColor="#FFC107"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    Clicked="OnRegisterClicked" />
+
+            <!-- Login Redirect -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Already have an account?" />
+                <Button Text="Login Here"
+                        FontAttributes="Bold"
+                        BackgroundColor="Transparent"
+                        TextColor="#2196F3"
+                        Clicked="OnLoginRedirectClicked" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

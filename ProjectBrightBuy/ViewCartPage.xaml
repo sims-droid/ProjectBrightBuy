@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectBrightBuy.ViewCartPage"
+             Title="ViewCartPage">
+    
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Page Header -->
+        <Label Text="🛍️ Your Shopping Cart"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#FFA500" />
+
+        <!-- Cart Items List -->
+        <CollectionView x:Name="CartListView" ItemsSource="{Binding CartItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#F1F1F1" CornerRadius="10" Padding="10" Margin="0,5">
+                        <Grid ColumnDefinitions="2*, Auto">
+                            <!-- Product Info -->
+                            <VerticalStackLayout>
+                                <Label Text="{Binding ProductName}" FontSize="18" FontAttributes="Bold" TextColor="#333" />
+                                <Label Text="{Binding ProductType}" FontSize="14" TextColor="#666" />
+                                <Label Text="{Binding ProductPrice, StringFormat='Price: R{0:F2}'}" FontSize="14" TextColor="#444" />
+                                <Label Text="{Binding Quantity, StringFormat='Qty: {0}'}" FontSize="14" TextColor="#444" />
+                            </VerticalStackLayout>
+
+                            <!-- Remove Button -->
+                            <Button Text="Remove"
+                                    Grid.Column="1"
+                                    BackgroundColor="#FF5555"
+                                    TextColor="White"
+                                    CornerRadius="8"
+                                    Padding="10,5"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.RemoveFromCartCommand}"
+                                    CommandParameter="{Binding ProductID}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Total and Actions -->
+        <Frame BorderColor="#EEE" Padding="10" CornerRadius="10" Margin="0,10,0,0">
+            <VerticalStackLayout>
+                <Label Text="{Binding TotalPrice, StringFormat='Total: R{0:F2}'}"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#222"
+                       HorizontalOptions="Center" />
+
+                <Grid ColumnDefinitions="*, *" Margin="0,10,0,0">
+                    <Button Text="Clear Cart"
+                            BackgroundColor="#FF7777"
+                            TextColor="White"
+                            CornerRadius="10"
+                            Command="{Binding ClearCartCommand}" />
+
+                    <Button Text="Checkout"
+                            Grid.Column="1"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            CornerRadius="10"
+                            Command="{Binding CheckoutCommand}" />
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
